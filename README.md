@@ -1,67 +1,86 @@
 # Coursera_GettingCleaningData_W4
-# Coursera - Getting &amp; Cleaning Data - Week 4 Project
+Coursera - Getting &amp; Cleaning Data - Week 4 Project
+
+Introduction:
+=============
+
+Project is based on data provided from:
+  Human Activity Recognition Using Smartphones Dataset
+  Version 1.0
+
+Additional detail about the expirement at the bottom of this document.
 
 
-==================================================================
-Human Activity Recognition Using Smartphones Dataset
-Version 1.0
-==================================================================
-Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
-Smartlab - Non Linear Complex Systems Laboratory
-DITEN - Università degli Studi di Genova.
-Via Opera Pia 11A, I-16145, Genoa, Italy.
-activityrecognition@smartlab.ws
-www.smartlab.ws
-==================================================================
+Original Data
+======================================
+
+- 'features_info.txt': Shows information about the variables used on the feature vector.
+- 'features.txt': List of all features.
+- 'activity_labels.txt': Links the class labels with their activity name.
+- 'X_train.txt': Training set.
+- 'y_train.txt': Training labels.
+- 'X_test.txt': Test set.
+- 'y_test.txt': Test labels.
+- 'subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
+- 'subject_test.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 70. 
+
+
+Summary of process performed in 'run_analysis.R
+==================================================
+Step 1: Merge the training and the test sets to create one data set.
+
+  - The 'feature.txt' file is loaded to data table "headers" to store the initial column header names.
+  - The 'x_train.txt' and 'X_test.txt' files are loaded to data tables "train" and "test" respectively with "headers" used to add column headers.
+  - The 'y_train.txt' and 'y_test.txt' files are loaded to data tables "labels_train" and "labels_test" respectively.
+  - The 'subject_train.txt' and 'subject_test.txt' files are loaded to data tables with the same names.
+  - The three train files are combined together and the three test files are combined together into new data tables "full_train" and "full_test" respectively.  This process used the cbind function since all three files have the same observations.
+  - The "full_train" and "full_test" files are combined together into new data table "full_data".  This process used the rbind function since both files have the same column variables.  This data table contains the full data set.
+
+
+Step 2: Extract only the measurements on the mean and standard deviation for each measurement.
+
+  - Determine what columns in the "full_test" data table represent mean and standard deviation information.
+  - Based on the informatoin in the file 'features_info.txt', the mean and standard deviation information is housed in variables with "mean()" and "std()" text in their names.
+  - Use the grep function to determine what header names in the "full_data" have either "mean()" or "std()". This information stored in the data field "mean_std".
+      - This function should use '\\.mean\\.|\\.std\\.' because we want to exclude fields that have the word mean or std but not in the format ".mean.".  This is based on the naming convention described in 'features_info.txt' and how it is converted to variable names.
+  - The subset of the data should also include column 1 and 2 which house the training and subject data.
+  - The subset of the columns is stored in the field "subset" by combining "mean_std" and 1 and 2.
+  - The subset of the "full_data" is stored in the data table "subset_data" by applying the "subset" variable.
+  
+  
+  Step 3: Use descriptive activity names to name the activities in the data set
+  
+    - Read in activity names to data table "activity_labels" from 'activity_labels.txt'.
+    - Convert the labels values (column 2 of subset_data) to descripitve activity names using the factor function.
+    
+  Step 4: Appropriately label the data set with descriptive variable names.
+  
+    - 
+
+
+Expirement Details:
+===================
+  ==================================================================
+  Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+  Smartlab - Non Linear Complex Systems Laboratory
+  DITEN - Università degli Studi di Genova.
+  Via Opera Pia 11A, I-16145, Genoa, Italy.
+  activityrecognition@smartlab.ws
+  www.smartlab.ws
+  ==================================================================
 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
 
-For each record it is provided: 
-======================================
 
-- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
-- Triaxial Angular velocity from the gyroscope. 
-- A 561-feature vector with time and frequency domain variables. 
-- Its activity label. 
-- An identifier of the subject who carried out the experiment.
-
-The dataset includes the following files:
-=========================================
-
-- 'README.txt'
-
-- 'features_info.txt': Shows information about the variables used on the feature vector.
-
-- 'features.txt': List of all features.
-
-- 'activity_labels.txt': Links the class labels with their activity name.
-
-- 'train/X_train.txt': Training set.
-
-- 'train/y_train.txt': Training labels.
-
-- 'test/X_test.txt': Test set.
-
-- 'test/y_test.txt': Test labels.
-
-The following files are available for the train and test data. Their descriptions are equivalent. 
-
-- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
-
-- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
-
-- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
-
-- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
-
-Notes: 
-======
+Data Notes: 
+===========
 - Features are normalized and bounded within [-1,1].
 - Each feature vector is a row on the text file.
 
 For more information about this dataset contact: activityrecognition@smartlab.ws
+
 
 License:
 ========
