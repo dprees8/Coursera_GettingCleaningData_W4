@@ -53,10 +53,29 @@ Step 2: Extract only the measurements on the mean and standard deviation for eac
     - Read in activity names to data table "activity_labels" from 'activity_labels.txt'.
     - Convert the labels values (column 2 of subset_data) to descripitve activity names using the factor function.
     
+    
   Step 4: Appropriately label the data set with descriptive variable names.
   
+    - Replace V1 with "Subject" variable name.
+        - Need to exclude V1.1 so use $ function to incidate the text comes at the end of the name.
+    - Replace V1.1 with "Activity"
+    - Replace periods with spaces to allow name to be easier to read.
+    - Update variable names that start with 't' to start with "Time ". 
+    - Update variable names that start with 'f' to start with "Freq ". 
+        - These variables represent the frequency based on a Fast Fourier Transform.  However, to balance the length vs. clarify of variable name a compromise of 'Freq' will be used.
+    - Replace the X/Y/Z portion of variable name with more detail (e.g. "along the X-axis").
     - 
 
+
+  Step 5: From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+    - Load dplyr library.
+    - Use a multi step process using dplyr functions
+        - First, note that the functions will be applying to "subset_data".
+        - Then, group by Subject and Activity.
+        - Next, summarize the mean and standard deviation for all variables in subset_data starting with column 3.
+            - Start with column 3 since the first 2 columns are Subject and Activity.
+    - Save the resulting table in the data table "mean_std_table".
+    
 
 Expirement Details:
 ===================
