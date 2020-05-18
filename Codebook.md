@@ -113,17 +113,18 @@ General description of the file including:
  - Observations include all possible combinations of the 30 subjects and the 6 activities.
  - Variables include Subject, Activity, and the mean and standard deviation calculations for the 66 variables pulled from the original dataset.
 
-###Subject
-Class - Numeric
-Values - Range 1 to 30
-Notes - Represents the subject in the study.
+Variable 1 - Subject
+  Class - Numeric
+  Values - Range 1 to 30
+  Notes - Represents the subject in the study.
 
-###Activity
-Class - Factor
-Values - Six levels (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
-Notes - Represents the activity levels included in the study.
+Variable 2 - Activity
+  Class - Factor
+  Values - Six levels (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
+  Notes - Represents the activity levels included in the study.
 
 ####Notes on variables 3 through 180:
+
 The variable names include detail about the data included.  The following will apply to all of the variables 3 through 180:
   - Variables ending with "\_mean" are the mean of the values in the larger data set for that given combination of Subject and Activity.
   - Variables ending with "\_sd" are the standard deviation of the values in t he larger data set for that given combination of Subject and Activity.
@@ -144,22 +145,136 @@ The variable names include detail about the data included.  The following will a
   - All variables from 3 through 180 were normalized and bounded within [-1,1]
 
 Variables 3 through 180 are:
-###Time BodyAcc X axis Mean_mean
-###Time BodyAcc Y axis Mean_mean
-###Time BodyAcc Z axis Mean_mean
-###Time BodyAcc X axis Std_mean
-###Time BodyAcc Y axis Std_mean
-###Time BodyAcc Z axis Std_mean
-###Time GravityAcc X axis Mean_mean
-###Time GravityAcc Y axis Mean_mean
-###Time GravityAcc Z axis Mean_mean
-###Time GravityAcc X axis Std_mean
-###Time GravityAcc Y axis Std_mean
-###Time GravityAcc Z axis Std_mean
-###Time BodyAccJerk X axis Mean_mean
-###Time BodyAccJerk Y axis Mean_mean
-###Time BodyAccJerk Z axis Mean_mean
-###Time BodyAccJerk X axis Std_mean
-###Time BodyAccJerk Y axis Std_mean
-###Time BodyAccJerk Z axis Std_mean
 
+- Time BodyAcc X axis Mean_mean
+- Time BodyAcc Y axis Mean_mean
+- Time BodyAcc Z axis Mean_mean
+- Time BodyAcc X axis Std_mean
+- Time BodyAcc Y axis Std_mean
+- Time BodyAcc Z axis Std_mean
+- Time GravityAcc X axis Mean_mean
+- Time GravityAcc Y axis Mean_mean
+- Time GravityAcc Z axis Mean_mean
+- Time GravityAcc X axis Std_mean
+- Time GravityAcc Y axis Std_mean
+- Time GravityAcc Z axis Std_mean
+- Time BodyAccJerk X axis Mean_mean
+- Time BodyAccJerk Y axis Mean_mean
+- Time BodyAccJerk Z axis Mean_mean
+- Time BodyAccJerk X axis Std_mean
+- Time BodyAccJerk Y axis Std_mean
+- Time BodyAccJerk Z axis Std_mean
+- Time BodyGyro X axis Mean_mean
+- Time BodyGyro Y axis Mean_mean
+- Time BodyGyro Z axis Mean_mean
+- Time BodyGyro X axis Std_mean
+- Time BodyGyro Y axis Std_mean
+- Time BodyGyro Z axis Std_mean
+- Time BodyGyroJerk X axis Mean_mean
+- Time BodyGyroJerk Y axis Mean_mean
+- Time BodyGyroJerk Z axis Mean_mean
+- Time BodyGyroJerk X axis Std_mean
+- Time BodyGyroJerk Y axis Std_mean
+- Time BodyGyroJerk Z axis Std_mean
+- Time BodyAccMag mean_mean
+- Time BodyAccMag std_mean
+- Time GravityAccMag mean_mean
+- Time GravityAccMag std_mean
+- Time BodyAccJerkMag mean_mean
+- Time BodyAccJerkMag std_mean
+- Time BodyGyroMag mean_mean
+- Time BodyGyroMag std_mean
+- Time BodyGyroJerkMag mean_mean
+- Time BodyGyroJerkMag std_mean
+- Freq BodyAcc X axis Mean_mean
+- Freq BodyAcc Y axis Mean_mean
+- Freq BodyAcc Z axis Mean_mean
+- Freq BodyAcc X axis Std_mean
+- Freq BodyAcc Y axis Std_mean
+- Freq BodyAcc Z axis Std_mean
+- Freq BodyAccJerk X axis Mean_mean
+- Freq BodyAccJerk Y axis Mean_mean
+- Freq BodyAccJerk Z axis Mean_mean
+- Freq BodyAccJerk X axis Std_mean
+- Freq BodyAccJerk Y axis Std_mean
+- Freq BodyAccJerk Z axis Std_mean
+- Freq BodyGyro X axis Mean_mean
+- Freq BodyGyro Y axis Mean_mean
+- Freq BodyGyro Z axis Mean_mean
+- Freq BodyGyro X axis Std_mean
+- Freq BodyGyro Y axis Std_mean
+- Freq BodyGyro Z axis Std_mean
+- Freq BodyAccMag mean_mean
+- Freq BodyAccMag std_mean
+- Freq BodyBodyAccJerkMag mean_mean
+- Freq BodyBodyAccJerkMag std_mean
+- Freq BodyBodyGyroMag mean_mean
+- Freq BodyBodyGyroMag std_mean
+- Freq BodyBodyGyroJerkMag mean_mean
+- Freq BodyBodyGyroJerkMag std_mean
+- Time BodyAcc X axis Mean_sd
+- Time BodyAcc Y axis Mean_sd
+- Time BodyAcc Z axis Mean_sd
+- Time BodyAcc X axis Std_sd
+- Time BodyAcc Y axis Std_sd
+- Time BodyAcc Z axis Std_sd
+- Time GravityAcc X axis Mean_sd
+- Time GravityAcc Y axis Mean_sd
+- Time GravityAcc Z axis Mean_sd
+- Time GravityAcc X axis Std_sd
+- Time GravityAcc Y axis Std_sd
+- Time GravityAcc Z axis Std_sd
+- Time BodyAccJerk X axis Mean_sd
+- Time BodyAccJerk Y axis Mean_sd
+- Time BodyAccJerk Z axis Mean_sd
+- Time BodyAccJerk X axis Std_sd
+- Time BodyAccJerk Y axis Std_sd
+- Time BodyAccJerk Z axis Std_sd
+- Time BodyGyro X axis Mean_sd
+- Time BodyGyro Y axis Mean_sd
+- Time BodyGyro Z axis Mean_sd
+- Time BodyGyro X axis Std_sd
+- Time BodyGyro Y axis Std_sd
+- Time BodyGyro Z axis Std_sd
+- Time BodyGyroJerk X axis Mean_sd
+- Time BodyGyroJerk Y axis Mean_sd
+- Time BodyGyroJerk Z axis Mean_sd
+- Time BodyGyroJerk X axis Std_sd
+- Time BodyGyroJerk Y axis Std_sd
+- Time BodyGyroJerk Z axis Std_sd
+- Time BodyAccMag mean_sd
+- Time BodyAccMag std_sd
+- Time GravityAccMag mean_sd
+- Time GravityAccMag std_sd
+- Time BodyAccJerkMag mean_sd
+- Time BodyAccJerkMag std_sd
+- Time BodyGyroMag mean_sd
+- Time BodyGyroMag std_sd
+- Time BodyGyroJerkMag mean_sd
+- Time BodyGyroJerkMag std_sd
+- Freq BodyAcc X axis Mean_sd
+- Freq BodyAcc Y axis Mean_sd
+- Freq BodyAcc Z axis Mean_sd
+- Freq BodyAcc X axis Std_sd
+- Freq BodyAcc Y axis Std_sd
+- Freq BodyAcc Z axis Std_sd
+- Freq BodyAccJerk X axis Mean_sd
+- Freq BodyAccJerk Y axis Mean_sd
+- Freq BodyAccJerk Z axis Mean_sd
+- Freq BodyAccJerk X axis Std_sd
+- Freq BodyAccJerk Y axis Std_sd
+- Freq BodyAccJerk Z axis Std_sd
+- Freq BodyGyro X axis Mean_sd
+- Freq BodyGyro Y axis Mean_sd
+- Freq BodyGyro Z axis Mean_sd
+- Freq BodyGyro X axis Std_sd
+- Freq BodyGyro Y axis Std_sd
+- Freq BodyGyro Z axis Std_sd
+- Freq BodyAccMag mean_sd
+- Freq BodyAccMag std_sd
+- Freq BodyBodyAccJerkMag mean_sd
+- Freq BodyBodyAccJerkMag std_sd
+- Freq BodyBodyGyroMag mean_sd
+- Freq BodyBodyGyroMag std_sd
+- Freq BodyBodyGyroJerkMag mean_sd
+- Freq BodyBodyGyroJerkMag std_sd
