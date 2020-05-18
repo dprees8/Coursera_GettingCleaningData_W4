@@ -30,8 +30,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ###Collection of the raw data
 
-For each record it is provided:
-======================================
+For each record the following is provided:
 
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
@@ -115,7 +114,7 @@ General description of the file including:
  - Variables include Subject, Activity, and the mean and standard deviation calculations for the 66 variables pulled from the original dataset.
 
 ###Subject
-Class - numeric
+Class - Numeric
 Values - Range 1 to 30
 Notes - Represents the subject in the study.
 
@@ -124,21 +123,43 @@ Class - Factor
 Values - Six levels (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
 Notes - Represents the activity levels included in the study.
 
-###Activity
-Class - Factor
-Values - Six levels (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
-Notes - Represents the activity levels included in the study.
+####Notes on variables 3 through 180:
+The variable names include detail about the data included.  The following will apply to all of the variables 3 through 180:
+  - Variables ending with "\_mean" are the mean of the values in the larger data set for that given combination of Subject and Activity.
+  - Variables ending with "\_sd" are the standard deviation of the values in t he larger data set for that given combination of Subject and Activity.
+  - The remainder of the variable names are from the variable names of the larger data set.
+  - The variable names from the larger data set also used abbreviated terminology throughout to allow for easier coding while maintaining variable recognition.
+      - Variables starting with "Time" are time based values.
+      - Variables starting with "Freq" are frequency based values.
+      - Variables with "Body" in the name refer to body motion components.
+      - Variables with "Gravity" in the name refer to gravitational motion components.
+      - Variables with "Acc" in the name refer to measurements from the accelerometer.
+      - Variables with "Gyro" in the name refer to measurements from the gyroscope.
+      - Variables for measurements along either the X, Y, or Z axis are noted as such in their names.
+      - Variables with "Jerk" in the name refer to jerk motions measurements.
+      - Variables with "Mag" in the name refer to magnitude measurements.
+      - Variables with "Mean" before the underscore indicates the values in the larger data set were mean calculations.
+      - Variables with "std" before the underscore indicates the values in the larger data set were standard deviation calculations.
+  - All variables from 3 through 180 are numeric.
+  - All variables from 3 through 180 were normalized and bounded within [-1,1]
 
+Variables 3 through 180 are:
+###Time BodyAcc X axis Mean_mean
+###Time BodyAcc Y axis Mean_mean
+###Time BodyAcc Z axis Mean_mean
+###Time BodyAcc X axis Std_mean
+###Time BodyAcc Y axis Std_mean
+###Time BodyAcc Z axis Std_mean
+###Time GravityAcc X axis Mean_mean
+###Time GravityAcc Y axis Mean_mean
+###Time GravityAcc Z axis Mean_mean
+###Time GravityAcc X axis Std_mean
+###Time GravityAcc Y axis Std_mean
+###Time GravityAcc Z axis Std_mean
+###Time BodyAccJerk X axis Mean_mean
+###Time BodyAccJerk Y axis Mean_mean
+###Time BodyAccJerk Z axis Mean_mean
+###Time BodyAccJerk X axis Std_mean
+###Time BodyAccJerk Y axis Std_mean
+###Time BodyAccJerk Z axis Std_mean
 
-
-
-Some information on the variable including:
- - Class of the variable
- - Unique values/levels of the variable
- - Unit of measurement (if no unit of measurement list this as well)
- - In case names follow some schema, describe how entries were constructed (for example time-body-gyroscope-z has 4 levels of descriptors. Describe these 4 levels). 
-
-(you can easily use Rcode for this, just load the dataset and provide the information directly form the tidy data file)
-
-####Notes on variable 1:
-If available, some additional notes on the variable not covered elsewehere. If no notes are present leave this section out.
